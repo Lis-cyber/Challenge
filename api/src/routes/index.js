@@ -16,12 +16,13 @@ server.get("/api/search", (req, res) => {
     if(result.length > 0) {
       let products = result.map((product) => {
         return {
+          id : product.id,
           title : product.title,
           price : product.price,
-          current_id : product.current_id,
+          currency_id : product.currency_id,
           available_quantity : product.available_quantity,
-          condition : product.condition,
           thumbnail : product.thumbnail,      
+          condition : product.condition
         }
       })
       res.status(200).send(products);
