@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 //import { BrowserRouter } from 'react-router-dom';
 import Catalogue from './components/Catalogue';
 import SearchBar from './components/SearchBar';
+import Cart from './components/Cart';
 import axios from "axios"
 import Filter from "./components/Filter"
 import Pagination from "./components/Pagination"
@@ -10,36 +11,57 @@ import Pagination from "./components/Pagination"
 function App() {
   
   const [products, setProducts] = useState([]);
+  const [productsResult, setProductsResult] = useState([]);
+  
+
   const [condition, setCondition] = useState("");
-  const [sort, setSort] = useState("");
+  const [sort] = useState("");
 
   // Buscar para que es el setLoading
-  const [loading, setLoading] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(10);
-
 
   const indexOfLastProduct = currentPage * productsPerPage
   const indexOfFirsProduct = indexOfLastProduct - productsPerPage
   const currentProducts = products.slice(indexOfFirsProduct, indexOfLastProduct)
 
+  // --> Pagination
   const paginate = pageNumber => setCurrentPage(pageNumber)
 
-  // Aca se hace la conexión con el back
-  // /api/search
+    // Falta que guarde la busqueda en cache
+    // Aca se hace la conexión con el back
+    // /api/search
+  let cache = {}
   const onSearch = (product) => {
-    axios.get(`http://localhost:1337/api/search?q=${product}`)
-      .then((p) => {
-        setProducts(p.data);
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+    
+    // console.log("product: ", product);
+    
+    ///return function(product) {
+      if (cache.hasOwnProperty(product)) { 
+        // console.log("Cache arriba ", cache)
+        return cache[product];                
+      }
+
+      else {
+        axios.get(`http://localhost:1337/api/search?q=${product}`)
+        .then((p) => {
+          setProducts(p.data);
+          setProductsResult(p.data) 
+          
+          // console.log("cache abajo: ", cache);
+          return cache[product] = onSearch(product);
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+      }
+
+    //}
+
   }
 
   const sortProducts = (event) => {
     const sort = event.target.value;
-    setSort(sort);
     setProducts(products.slice().sort((a, b) => (
       sort === "lowest" ? 
       ((a.price > b.price)? 1 : -1):
@@ -50,19 +72,50 @@ function App() {
     )
   }
 
-  // Falta que guarde la busqueda en cache
-  const filterProducts = (state) => {
-    const productCondition = state.target.value;
-      if (productCondition === "new") {
-        setProducts(
-          products.filter((product) => product.condition === productCondition)
-        );
-      } else {
-        setProducts(
-          products.filter((product) => product.condition === productCondition)
-        );
+  const filterProducts = (event) => {
+    let productCondition = event.target.value;
+
+    if (productCondition === "new") {
+      setCondition(productCondition)
+      setProducts(
+        productsResult.filter(
+          (product) => product.condition.indexOf(productCondition) >= 0 )
+      )
+    } 
+    
+    else if (productCondition === "used") {
+      setCondition(productCondition)
+      setProducts(
+        productsResult.filter(
+          (product) => product.condition.indexOf(productCondition) >= 0 )
+      )
+    } 
+    
+    else {
+      setCondition(productCondition)
+      setProducts(productsResult);
+    }
+  }
+
+  // -------------------------- > Cart
+  const [cartItems, setCartItems] = useState([]);
+
+  const addToCart = (product) => {
+    console.log("Products ", product)
+    const itemsCart = cartItems.slice(); // Clona los items del carrito dentro del estado
+    let alreadyInCart = false;
+    console.log("soy itemsCart ", itemsCart)
+    itemsCart.forEach( item => {
+      if(item.id === product.id){
+        item.count++
+        alreadyInCart = true
       }
-    };
+    })
+      if(!alreadyInCart){
+        itemsCart.push({...product, count: 1})
+      }
+      setCartItems(itemsCart);
+  }
 
     return (
       
@@ -75,52 +128,13 @@ function App() {
           filterProducts = {filterProducts}
           />
         <SearchBar onSearch = {onSearch}/>  
+        <Cart cartItems = {cartItems}/>
         <Pagination productsPerPage={productsPerPage} totalProducts={products.length} paginate={paginate} />
-        <Catalogue products = {currentProducts} loading={loading}/>
+        <Catalogue products = {currentProducts} addToCart = {addToCart}/>
         
     </div>
+  
   );
 }
 
 export default App;
-
-
-
-// const filterProducts = (event) => {
-//   if (event.target.value === "") {
-//     setCondition(event.target.value);
-//     setProducts(products);
-//   } else {
-//     setCondition(event.target.value);
-//     setProducts(
-//       products.filter(
-//         (product => product.condition === event.target.value))
-//     );
-//   }
-//   // sessionStorage.setItem("products", JSON.stringify(products))
-// }; 
-
-  // const [products, 
-  //       setProducts = sessionStorage.getItem("products") ? 
-  //                     sessionStorage.getItem("products", JSON.parse(products)) : [] ] = useState([]);
-
-  // const [products, 
-  //   setProducts] = useState(sessionStorage.getItem("products") ?    // (condition) ? true : false
-  //                           sessionStorage.getItem("products", JSON.parse(products)) : [])
-  
-    
-  // useEffect(() => {
-  //   sessionStorage.setItem("products", products);
-  // }, [products]);
-                            
-
-  // Variables para filtrar por condicion y por precio.
-
-  // const onSearch = (product) => {
-  //   cacheProducts = sessionStorage.getItem(product)
-
-  //   if(cacheProducts){
-  //     setCacheProducts(JSON.parse(cacheProducts));
-  //   } else {
-  //   }
-  // }

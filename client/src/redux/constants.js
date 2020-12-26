@@ -1,0 +1,4 @@
+// export const SEARCH_PRODUCT = "SEARCH_PRODUCT"
+// export const FILTER_PRODUCT = "FILTER_PRODUCT"
+
+// export const ADD_PRODUCT_TO_CACHE = "ADD_PRODUCT_TO_CACHE";

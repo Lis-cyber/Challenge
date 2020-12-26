@@ -9,7 +9,6 @@ const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
 
   return (
     <div>
-      <h1>Hola mundo</h1>
       <nav>
         <ul>
           {pageNumbers.map(number => (

@@ -1,6 +1,7 @@
 import ProductCard from './ProductCard';
 
-function Catalogue ({ products }) {
+function Catalogue ({ products , addToCart }) {
+  
   return (
     <div>
       {
@@ -14,6 +15,7 @@ function Catalogue ({ products }) {
               available_quantity = {product.available_quantity}
               thumbnail = {product.thumbnail}
               condition = {product.condition}
+              onClick = {() => addToCart(product)}
             />
           )
         })
