@@ -5,11 +5,10 @@ const axios = require("axios");
 // Usaremos el siguiente endpoint de Mercado Libre https://api.mercadolibre.com/sites/MLA/search?q={query}. 
 // Recibe un queryString con el parámetro q con un string que indica el keyword a buscar. 
 
-
 // /api/search
 server.get("/api/search", (req, res) => {
   const product = req.query.q;
-    
+
   axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${product}`)
   
   .then((product) => {
@@ -27,6 +26,7 @@ server.get("/api/search", (req, res) => {
         }
       })
       res.status(200).send(products);
+
     } else {
       throw "Product not found."
     }
@@ -34,6 +34,11 @@ server.get("/api/search", (req, res) => {
     .catch((err) =>{
       res.status(404).send(err);
     })
+
+    
 });
+
+
+
   
-  module.exports = server;
+module.exports = server;
