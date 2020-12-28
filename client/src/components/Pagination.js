@@ -27,5 +27,5 @@ const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
 export default Pagination;
 
 
-
+// Verificar para eliminar el warning href="!#"
 

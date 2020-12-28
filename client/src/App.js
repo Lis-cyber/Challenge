@@ -7,17 +7,24 @@ import axios from "axios"
 import Filter from "./components/Filter"
 import Pagination from "./components/Pagination"
 
+// Redux ---------------------------------------------->
+import { useDispatch, useSelector } from 'react-redux'
+import { Provider } from "react-redux"
+import store from "./redux/store"
 
 function App() {
-  
+  // Redux ---------------------------------------------->
+  // const dispatch = useDispatch()
+  // const selector = useSelector()
+  // Products ------------------------------------------->
   const [products, setProducts] = useState([]);
   const [productsResult, setProductsResult] = useState([]);
-  
-
+  // Condition ------------------------------------------>
   const [condition, setCondition] = useState("");
   const [sort] = useState("");
 
-  // Buscar para que es el setLoading
+  // Pagination ----------------------------------------->
+         // Buscar para que es el setLoading
   const [currentPage, setCurrentPage] = useState(1);
   const [productsPerPage] = useState(10);
 
@@ -25,40 +32,22 @@ function App() {
   const indexOfFirsProduct = indexOfLastProduct - productsPerPage
   const currentProducts = products.slice(indexOfFirsProduct, indexOfLastProduct)
 
-  // --> Pagination
   const paginate = pageNumber => setCurrentPage(pageNumber)
 
     // Falta que guarde la busqueda en cache
     // Aca se hace la conexión con el back
     // /api/search
-  let cache = {}
   const onSearch = (product) => {
-    
-    // console.log("product: ", product);
-    
-    ///return function(product) {
-      if (cache.hasOwnProperty(product)) { 
-        // console.log("Cache arriba ", cache)
-        return cache[product];                
-      }
-
-      else {
-        axios.get(`http://localhost:1337/api/search?q=${product}`)
-        .then((p) => {
-          setProducts(p.data);
-          setProductsResult(p.data) 
-          
-          // console.log("cache abajo: ", cache);
-          return cache[product] = onSearch(product);
-        })
-        .catch((err) => {
-          console.log(err)
-        })
-      }
-
-    //}
-
+    axios.get(`http://localhost:1337/api/search?q=${product}`)
+    .then((p) => {
+      setProducts(p.data);
+      setProductsResult(p.data) 
+    })
+    .catch((err) => {
+      console.log(err)
+    })
   }
+  // Sort ---------------------------------------------->
 
   const sortProducts = (event) => {
     const sort = event.target.value;
@@ -72,6 +61,7 @@ function App() {
     )
   }
 
+  // Filter -------------------------------------------->
   const filterProducts = (event) => {
     let productCondition = event.target.value;
 
@@ -81,30 +71,24 @@ function App() {
         productsResult.filter(
           (product) => product.condition.indexOf(productCondition) >= 0 )
       )
-    } 
-    
-    else if (productCondition === "used") {
+    } else if (productCondition === "used") {
       setCondition(productCondition)
       setProducts(
         productsResult.filter(
           (product) => product.condition.indexOf(productCondition) >= 0 )
       )
-    } 
-    
-    else {
+    } else {
       setCondition(productCondition)
       setProducts(productsResult);
     }
   }
 
-  // -------------------------- > Cart
+  // Cart - AddItems -----------------------------------> 
   const [cartItems, setCartItems] = useState([]);
+  const itemsCart = cartItems.slice(); // Clona los items del carrito dentro del estado
 
   const addToCart = (product) => {
-    console.log("Products ", product)
-    const itemsCart = cartItems.slice(); // Clona los items del carrito dentro del estado
     let alreadyInCart = false;
-    console.log("soy itemsCart ", itemsCart)
     itemsCart.forEach( item => {
       if(item.id === product.id){
         item.count++
@@ -114,11 +98,16 @@ function App() {
       if(!alreadyInCart){
         itemsCart.push({...product, count: 1})
       }
-      setCartItems(itemsCart);
+      setCartItems(itemsCart); // --> Actualizar estado
+  }
+  // Cart - RemoveItems --------------------------------> 
+  const removeFromCart = (product) => {
+    setCartItems(itemsCart.filter((x) => x.id !== product.id))
   }
 
-    return (
-      
+
+  return (
+    <Provider store={store}>
       <div>
         <Filter 
           count = {products.length}
@@ -128,12 +117,11 @@ function App() {
           filterProducts = {filterProducts}
           />
         <SearchBar onSearch = {onSearch}/>  
-        <Cart cartItems = {cartItems}/>
+        <Cart cartItems = {cartItems} removeFromCart={removeFromCart}/>
         <Pagination productsPerPage={productsPerPage} totalProducts={products.length} paginate={paginate} />
         <Catalogue products = {currentProducts} addToCart = {addToCart}/>
-        
-    </div>
-  
+      </div>
+    </Provider>
   );
 }
 

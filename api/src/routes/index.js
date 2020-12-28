@@ -8,6 +8,7 @@ const axios = require("axios");
 // /api/search
 server.get("/api/search", (req, res) => {
   const product = req.query.q;
+  const regex = /-I./;
 
   axios.get(`https://api.mercadolibre.com/sites/MLA/search?q=${product}`)
   
@@ -21,7 +22,7 @@ server.get("/api/search", (req, res) => {
           price : product.price,
           currency_id : product.currency_id,
           available_quantity : product.available_quantity,
-          thumbnail : product.thumbnail,      
+          thumbnail : product.thumbnail.replace(regex, "-O."),      
           condition : product.condition
         }
       })
