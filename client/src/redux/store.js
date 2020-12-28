@@ -1,11 +1,13 @@
-// import { createStore, applyMiddleware } from "redux";
-// //compose only if we need
-// import rootReducer from "./reducers";
-// import thunk from "redux-thunk";
+import { createStore, applyMiddleware, compose } from "redux";
+//compose only if we need
+// --> Remember only one store per app
+import rootReducer from "./reducers";
+import thunk from "redux-thunk";
 
-// const store = createStore(
-//     rootReducer,
-//     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-//     applyMiddleware(thunk) // For request with delete
-// )
-// export default store;
+const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(rootReducer, composeEnhancer(applyMiddleware(thunk)));
+
+export default store;
+
+//----> composeEnhancer: funciones de orden superior que agregan algunas funciones adicionales al store
