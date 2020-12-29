@@ -20,7 +20,7 @@ server.get("/api/search", cache(20), (req, res) => {
           currency_id : product.currency_id,
           available_quantity : product.available_quantity,
           thumbnail : product.thumbnail.replace(regex, "-O."),      
-          condition : product.condition
+          condition : product.condition,
         }
       })
       res.status(200).send(products);
@@ -32,10 +32,7 @@ server.get("/api/search", cache(20), (req, res) => {
     .catch((err) =>{
       res.status(404).send(err);
     })
-
-    
 });
-
 
   
 module.exports = server;

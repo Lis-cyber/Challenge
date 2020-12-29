@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
+//import styles from '../Styles/styles.css'
 
 function SearchBar({onSearch}) {
   
   const [input, setInput] = useState("");
- 
+  
   return (
-    <div>
+    <div className= "searchBar">
       <form onSubmit = {(e) => {
         e.preventDefault();
         onSearch(input);
@@ -20,7 +21,7 @@ function SearchBar({onSearch}) {
         value = {input}
       />
       <input
-        className = "button"
+        className = "button-submit"
         type = "submit"
         value = "Submit"
         

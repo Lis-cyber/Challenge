@@ -5,19 +5,19 @@ const cache = duration => {
         let key = '__express__' + req.originalUrl || req.url
         let cachedBody = mcache.get(key)
         if(cachedBody){
-            console.log("soy la key", key)
-            console.log("Soy el cachedBody ", cachedBody)
+            // console.log("soy la key", key)
+            // console.log("Soy el cachedBody ", cachedBody)
             res.send(cachedBody)
             return
-        }else{
+        } else {
             res.sendResponse = res.send
-            console.log("no estoy en el cache")
-            console.log("Soy la send response " , res.sendResponse)
+            // console.log("no estoy en el cache")
+            // console.log("Soy la send response " , res.sendResponse)
             res.send = body => {
                 mcache.put(key, body, duration * 1000)
                 res.sendResponse(body)
             }
-            console.log("me acaban de crear", cachedBody)
+            // console.log("me acaban de crear", cachedBody)
             next()
         }
     }
