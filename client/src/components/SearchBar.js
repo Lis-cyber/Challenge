@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
 function SearchBar({onSearch}) {
-
+  
   const [input, setInput] = useState("");
-
+ 
   return (
     <div>
       <form onSubmit = {(e) => {
@@ -23,6 +23,7 @@ function SearchBar({onSearch}) {
         className = "button"
         type = "submit"
         value = "Submit"
+        
       />
       </form>
     </div>

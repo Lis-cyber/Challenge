@@ -1,12 +1,9 @@
 const server = require("express").Router();
 const axios = require("axios");
-
-
-// Usaremos el siguiente endpoint de Mercado Libre https://api.mercadolibre.com/sites/MLA/search?q={query}. 
-// Recibe un queryString con el parámetro q con un string que indica el keyword a buscar. 
+const { cache } = require('../cache');
 
 // /api/search
-server.get("/api/search", (req, res) => {
+server.get("/api/search", cache(20), (req, res) => {
   const product = req.query.q;
   const regex = /-I./;
 
@@ -38,7 +35,6 @@ server.get("/api/search", (req, res) => {
 
     
 });
-
 
 
   

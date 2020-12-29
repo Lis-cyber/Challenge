@@ -13,6 +13,7 @@
     "axios": "^0.21.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "memory-cache": "^0.2.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.6"
   }
