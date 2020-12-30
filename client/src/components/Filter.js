@@ -1,9 +1,9 @@
 import React from 'react'
-// import styles from '../Styles/styles.css'
+import { FilterStyled } from '../Styles/Filter_styles';
 
 function Filter(props) {
   return (
-    <div key={props.id} className="filterDiv">
+    <FilterStyled>
       <div className="results">
         <div className="input"><b>{props.input}</b></div>
         <div className="result">{props.count} Results </div>
@@ -24,10 +24,9 @@ function Filter(props) {
               {/* <option value="all">All</option> */}
               <option value="new">New</option>
               <option value="used">Used</option>
-          </select>
+          </select>    
       </div>
-          
-    </div>
+    </FilterStyled>
   )
 }
 

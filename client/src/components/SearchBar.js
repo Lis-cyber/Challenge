@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-//import styles from '../Styles/styles.css'
+import { SearchBarStyled } from '../Styles/SearchBar_style'
 
 function SearchBar({onSearch}) {
   
   const [input, setInput] = useState("");
   
   return (
-    <div className= "searchBar">
+    
       <form onSubmit = {(e) => {
         e.preventDefault();
         onSearch(input);
@@ -27,7 +27,7 @@ function SearchBar({onSearch}) {
         
       />
       </form>
-    </div>
+    
   )
 }
 

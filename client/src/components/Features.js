@@ -5,6 +5,8 @@ import Cart from './Cart';
 import axios from "axios"
 import Filter from "./Filter"
 import Pagination from "./Pagination"
+import { FeaturesStyled } from '../Styles/Features_styles'
+import { SearchBarStyled } from '../Styles/SearchBar_style'
 
 function Features() {
 
@@ -12,6 +14,10 @@ function Features() {
   const [products, setProducts] = useState([]);
   const [productsResult, setProductsResult] = useState([]);
   const [input, setInput] = useState("");
+
+  // Categories ------------------------------------------->
+  // const [categories, setCategories] = useState([]);
+  // const [categoriesResult, setCategoriesResult] = useState([]);
   
   // Condition ------------------------------------------>
   const [condition, setCondition] = useState("");
@@ -20,36 +26,59 @@ function Features() {
   // Pagination ----------------------------------------->
   // Buscar para que es el setLoading
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(10);
+  const [productsPerPage] = useState(12);
   
   const indexOfLastProduct = currentPage * productsPerPage
   const indexOfFirsProduct = indexOfLastProduct - productsPerPage
   const currentProducts = products.slice(indexOfFirsProduct, indexOfLastProduct)
-  
   const paginate = pageNumber => setCurrentPage(pageNumber)
-  
-  // Falta que guarde la busqueda en cache
-    // Aca se hace la conexión con el back
-    // /api/search
-    const onSearch = (product) => {
-    //   const dispatch = useDispatch();
-    //   const search = useSelector(({ products }) => products.search);
-    //   const status = useSelector(({ products }) => products.status);
-    // useEffect(() => {
-    //   dispatch(getProducts(product))
-    // }, [product])
-      setInput(product)
-      axios.get(`http://localhost:1337/api/search?q=${product}`)
-      .then((p) => {
-        setProducts(p.data);
-        setProductsResult(p.data) 
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }
-  // Sort ---------------------------------------------->
 
+  // Conexion Back ----------------------------------------->
+  // Rout --> /api/search
+  const onSearch = (product) => {
+    setInput(product)
+    axios.get(`http://localhost:1337/api/search?q=${product}`)
+    .then((p) => {
+      setProducts(p.data);
+      setProductsResult(p.data) 
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+  }
+
+  // // Rout --> /api/categories
+  // const searchCat = (event) => {
+  //   let categories = event.target.value;
+  //   if(categories === "categories"){
+
+  //     axios.get(`http://localhost:1337/api/categories`)
+  //     .then((categories) => {
+  //       console.log("Dentro ", categories)
+  //       setCategories(categories.data);
+  //       setCategoriesResult(categories.data) 
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     })
+  //   }
+   
+  // }
+  // console.log("Somos las categories" , categories)
+
+  // // Rout --> /api/categories/:id
+  // const onSearchCatId = (id) => {
+  //   axios.get(`http://localhost:1337/api/categories/${id.id}`)
+  //   .then((id) => {
+  //     setProducts(id.data);
+  //     setProductsResult(id.data) 
+  //   })
+  //   .catch((err) => {
+  //     console.log(err)
+  //   })
+  // }
+
+  // Sort ------------------------------------------------>
   const sortProducts = (event) => {
     const sort = event.target.value;
     setSort(sort);
@@ -113,30 +142,40 @@ function Features() {
 
 
   return (
-    // <Provider store={store}>
+    <FeaturesStyled>
+      <SearchBarStyled>
+        <SearchBar onSearch={onSearch} />
+      </SearchBarStyled>
       <div>
-        <SearchBar onSearch = {onSearch}/>
-        {/* Este div "contiene Cart y filter" */}
-        <div>
-          <div>
-            <Filter 
-              count = {products.length}
-              sort = {sort}
-              condition = {condition}
-              sortProducts = {sortProducts}
-              filterProducts = {filterProducts}
-              input = {input}
-              />
-            <Pagination productsPerPage={productsPerPage} totalProducts={products.length} paginate={paginate} />
-            <Catalogue products = {currentProducts} addToCart = {addToCart}/>
-            <Pagination key={"#"} productsPerPage={productsPerPage} totalProducts={products.length} paginate={paginate} />
+        <Filter
+          count={products.length}
+          sort={sort}
+          condition={condition}
+          sortProducts={sortProducts}
+          filterProducts={filterProducts}
+          input={input}
+        />
+        <div className="content">
+          <div className="main">
+            <Pagination
+              productsPerPage={productsPerPage}
+              totalProducts={products.length}
+              paginate={paginate}
+            />
+            <Catalogue products={currentProducts} addToCart={addToCart} />
+            <Pagination
+              key={"#"}
+              productsPerPage={productsPerPage}
+              totalProducts={products.length}
+              paginate={paginate}
+            />
           </div>
-          <div>
-            <Cart cartItems = {cartItems} removeFromCart={removeFromCart}/>
+          <div className="sidebar">
+            <Cart cartItems={cartItems} removeFromCart={removeFromCart} />
           </div>
         </div>
       </div>
-    // </Provider>
+    </FeaturesStyled>
   );
 }
 

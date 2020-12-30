@@ -1,29 +1,28 @@
 import ProductCard from './ProductCard';
-import styles from '../Styles/styles.css'
+import { CatalogueStyled } from '../Styles/Catalogue_style'
 
 
 function Catalogue ({ products , addToCart }) {
-  console.log(styles)
   return (
-    <div className="catalogueDiv">
+    <CatalogueStyled>
       {
         products.map((product) => {
           return (
-            <ProductCard 
-              key = {product.id}
-              title = {product.title}
-              price = {product.price}
-              currency_id = {product.currency_id}
-              available_quantity = {product.available_quantity}
-              thumbnail = {product.thumbnail}
-              condition = {product.condition}
-              // Acá se agrega el producto y en ProductCard solo lo ejecuta
-              addToCart = {() => addToCart(product)}
-            />
+              <ProductCard 
+                key = {product.id}
+                title = {product.title}
+                price = {product.price}
+                currency_id = {product.currency_id}
+                available_quantity = {product.available_quantity}
+                thumbnail = {product.thumbnail}
+                condition = {product.condition}
+                // Acá se agrega el producto y en ProductCard solo lo ejecuta
+                addToCart = {() => addToCart(product)}
+              />
           )
         })
       }
-    </div>
+    </CatalogueStyled>
   )
 }
 
