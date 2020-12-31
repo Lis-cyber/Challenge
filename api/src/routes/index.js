@@ -3,7 +3,7 @@ const axios = require("axios");
 const { cache } = require('../cache');
 
 // Search -->
-server.get("/api/search", cache(20), (req, res) => {
+server.get("/api/search", cache(60), (req, res) => {
   const product = req.query.q;
   const regex = /-I./;
 

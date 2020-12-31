@@ -10,6 +10,15 @@ const Cart = ({ cartItems, removeFromCart }) => {
           )}
         </div>
         <div>
+          <br />
+          {cartItems.length !== 0 && (
+            <div>
+              Total: ${" "}
+              {cartItems.reduce((acc, curr) => acc + curr.price * curr.count, 0)}
+              {" ARS"}
+            </div>
+          )}
+          <br />
           <div>
             <ul>
               {/* Se definen los cartItem como números para listarlos */}
@@ -40,13 +49,7 @@ const Cart = ({ cartItems, removeFromCart }) => {
               ))}
             </ul>
           </div>
-          {cartItems.length !== 0 && (
-            <div>
-              Total: ${" "}
-              {cartItems.reduce((acc, curr) => acc + curr.price * curr.count, 0)}
-              {" ARS"}
-            </div>
-          )}
+
         </div>
       </div>
     );
