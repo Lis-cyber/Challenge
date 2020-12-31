@@ -1,26 +1,25 @@
-// import React from "react";
-// import {
-//   BrowserRouter as Router,
-//   Switch,
-//   Route,
-//   Link
-// } from "react-router-dom";
-import Features from './Features';
+import React from "react";
+import {
+  Link
+} from "react-router-dom";
+
 import ShoppingPhoto from '../Styles/img/home.jpg'
-// Aca solo habra un link a la pagina de filtros y search y productos
-// y el diseño aca de la pagina principal
 import { HomeStyled } from '../Styles/Home_style'
-import SearchBar from "./SearchBar"
+import Footer from './Footer'
+
+function Home() {
 
 
-function Home({onSearch}) {
   return (
     <HomeStyled>
-      {/* <SearchBar className="homeBar" /> */}
-      
-      {/* <img src = {ShoppingPhoto} alt = "shoppingPhoto" /> */}
+      <Link className="link" to = "/search">
+        <div className="text">
+          <p>Time To Shop!</p>
+          <h1>Lets Go!</h1>
+        </div>
+      </Link>
+      <img src = {ShoppingPhoto} alt = "shoppingPhoto" />
       {/* link a features, y al clickear, se vaya al componente Features */}
-      <Features />
     </HomeStyled>
   )
 }

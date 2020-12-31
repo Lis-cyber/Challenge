@@ -7,6 +7,7 @@ import Filter from "./Filter"
 import Pagination from "./Pagination"
 import { FeaturesStyled } from '../Styles/Features_styles'
 import { SearchBarStyled } from '../Styles/SearchBar_style'
+import Footer from './Footer'
 
 function Features() {
 
@@ -175,6 +176,7 @@ function Features() {
           </div>
         </div>
       </div>
+      <Footer />
     </FeaturesStyled>
   );
 }
