@@ -5,6 +5,7 @@ export const FeaturesStyled = styled.div `
     .content {
         display: flex;
         flex-wrap: wrap;
+        font-family: 'Roboto', sans-serif; 
     }
   
     .main {
@@ -16,19 +17,4 @@ export const FeaturesStyled = styled.div `
         display: flex;
     }
 
-    .product-cart {
-        display: flex;
-        padding-bottom: 3rem;
-        list-style-type: none;
-    }
-
-    .infoDiv {
-        display: flex;
-        padding-left: 0.6rem;
-        align-items: center;
-    }
-
-    .button-remove {
-        padding-left: 1.8rem;
-    }
 `

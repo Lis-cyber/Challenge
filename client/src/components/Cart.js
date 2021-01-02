@@ -1,20 +1,23 @@
+import { CartStyled } from '../Styles/Cart_style'
 
 const Cart = ({ cartItems, removeFromCart }) => {
+
     return (
-      <div>
-        <div>
+      <CartStyled>
+        <div className="empty">
           {cartItems.length === 0 ? (
             <div>Cart is empty</div>
           ) : (
-            <div>You have {cartItems.length} different items in your cart !</div>
+            <div>Your cart have {cartItems.length} different items !</div>
           )}
         </div>
         <div>
           <br />
           {cartItems.length !== 0 && (
-            <div>
+            <div className= "total">
               Total: ${" "}
-              {cartItems.reduce((acc, curr) => acc + curr.price * curr.count, 0)}
+              {Intl.NumberFormat('de-DE').format(
+              cartItems.reduce((acc, curr) => acc + curr.price * curr.count, 0))}
               {" ARS"}
             </div>
           )}
@@ -32,14 +35,9 @@ const Cart = ({ cartItems, removeFromCart }) => {
   
                   <div className="infoDiv">
                     <div className ="info-text">
-                      Cantidad: {item.count}
-                      <br />
-                      <br />
-                      $ {item.price} {item.currency_id}
-                      <br />
-                      <br />
-                      Subtotal: $ {item.price * item.count}{" "}
-                      
+                      <div>Quantity: {item.count}</div>
+                      <div>Price: $ {Intl.NumberFormat('de-DE').format(item.price)} {item.currency_id}</div>
+                      <div>Subtotal: $ {Intl.NumberFormat('de-DE').format(item.price * item.count)}{" "}</div>
                     </div>
                     <div  className="button-remove">
                       <button  onClick={() => removeFromCart(item)}>Remove</button>
@@ -51,7 +49,7 @@ const Cart = ({ cartItems, removeFromCart }) => {
           </div>
 
         </div>
-      </div>
+      </CartStyled>
     );
   };
 

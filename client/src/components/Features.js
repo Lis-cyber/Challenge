@@ -8,6 +8,9 @@ import Pagination from "./Pagination"
 import { FeaturesStyled } from '../Styles/Features_styles'
 import { SearchBarStyled } from '../Styles/SearchBar_style'
 import Footer from './Footer'
+import  Categories  from './Categories';
+import { SlideStyled } from '../Styles/Slides_style';
+import Slides from './Slides';
 
 function Features() {
 
@@ -17,8 +20,8 @@ function Features() {
   const [input, setInput] = useState("");
 
   // Categories ------------------------------------------->
-  // const [categories, setCategories] = useState([]);
-  // const [categoriesResult, setCategoriesResult] = useState([]);
+  const [categories, setCategories] = useState([]);
+  const [categoriesResult, setCategoriesResult] = useState([]);
   
   // Condition ------------------------------------------>
   const [condition, setCondition] = useState("");
@@ -36,6 +39,7 @@ function Features() {
 
   // Conexion Back ----------------------------------------->
   // Rout --> /api/search
+
   const onSearch = (product) => {
     setInput(product)
     axios.get(`http://localhost:1337/api/search?q=${product}`)
@@ -47,27 +51,20 @@ function Features() {
       console.log(err)
     })
   }
-
-  // // Rout --> /api/categories
-  // const searchCat = (event) => {
-  //   let categories = event.target.value;
-  //   if(categories === "categories"){
-
-  //     axios.get(`http://localhost:1337/api/categories`)
-  //     .then((categories) => {
-  //       console.log("Dentro ", categories)
-  //       setCategories(categories.data);
-  //       setCategoriesResult(categories.data) 
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     })
-  //   }
+ 
+  // Rout --> /api/categories
+  const searchCat = () => {
+      axios.get(`http://localhost:1337/api/categories`)
+      .then((categories) => {
+        setCategories(categories.data);
+        setCategoriesResult(categories.data) 
+      })
+      .catch((err) => {
+        console.log(err)
+      })
+  }
    
-  // }
-  // console.log("Somos las categories" , categories)
-
-  // // Rout --> /api/categories/:id
+  // Rout --> /api/categories/:id
   // const onSearchCatId = (id) => {
   //   axios.get(`http://localhost:1337/api/categories/${id.id}`)
   //   .then((id) => {
@@ -78,7 +75,7 @@ function Features() {
   //     console.log(err)
   //   })
   // }
-
+  
   // Sort ------------------------------------------------>
   const sortProducts = (event) => {
     const sort = event.target.value;
@@ -156,6 +153,11 @@ function Features() {
           filterProducts={filterProducts}
           input={input}
         />
+        <Categories
+          searchCat={searchCat}
+          categories={categories}
+        />
+        <Slides/>
         <div className="content">
           <div className="main">
             <Pagination
@@ -193,3 +195,4 @@ export default Features;
   //   {/* Este componente home solo tendra diseño */}
   //   {/* Tendra un boton para acceder a la plataforma */}
   
+

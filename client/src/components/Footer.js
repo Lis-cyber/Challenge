@@ -37,11 +37,11 @@ function Footer() {
             <div className="us">
                 Lisbeth
                 <a href="https://github.com/Lis-cyber">
-                  <img src={githubLogo} />
+                  <img src={githubLogo} alt="lis"/>
                 </a>
                 Sixto
                 <a href="https://github.com/sacunap">
-                  <img src={githubLogo} />
+                  <img src={githubLogo} alt="sixto"/>
                 </a>
             </div>
             <p>

@@ -9,6 +9,8 @@ export const ProdCard = styled.div `
     display: flex;
     align-items: center;
     flex-direction: column;
+    max-height: 17rem; 
+    min-height: 17rem;   
     p {
       flex-grow: 1;
     }
@@ -38,13 +40,16 @@ export const ProdCard = styled.div `
   .card-text {
     display: flex;
     justify-content: center;
+    margin: 0.2rem;
   }
-  
+
   .card-img {
     margin: auto;
     width: 9rem;
     padding-top: 2rem;
+    cursor: pointer;
   }
+
 
   .buttonAdd {
     border-radius: 0.24rem;

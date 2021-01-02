@@ -12,7 +12,7 @@ export const FooterStyled = styled.div `
   background-color: #BDB7AB;
   color: white;
   text-align: center;
-  
+  font-family: 'Bellota Text', cursive; 
 }
 
 
@@ -33,9 +33,11 @@ export const FooterStyled = styled.div `
   ul {
     padding-left: 1rem;
     width: 8rem;
-
+    font-family: 'Patrick Hand SC', cursive;
+    font-size: 1.2rem;
     li {
       text-align: left;
+      white-space: nowrap;
     }
   }
 }
@@ -64,9 +66,12 @@ export const FooterStyled = styled.div `
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Patrick Hand SC', cursive;
+  font-size: 2rem;
   img {
     margin: 1rem
   }
 }
+
 
 `

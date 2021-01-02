@@ -16,6 +16,7 @@ function Catalogue ({ products , addToCart }) {
                 available_quantity = {product.available_quantity}
                 thumbnail = {product.thumbnail}
                 condition = {product.condition}
+                permalink = {product.permalink}
                 // Acá se agrega el producto y en ProductCard solo lo ejecuta
                 addToCart = {() => addToCart(product)}
               />
