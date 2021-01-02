@@ -7,7 +7,11 @@ const ProductCard = (props) => {
   return (
     <ProdCard>
           <div className="card">
-              <img src={props.thumbnail} alt="thumbnail" className="card-img" onClick = {() => window.location.href = props.permalink}
+              <img src={props.thumbnail} 
+              alt="thumbnail" 
+              className="card-img" 
+              // onClick = {() => window.location.href = props.permalink}
+              onClick = {() => window.open(props.permalink, "_blank")}
               />
             <div className="card-body">
               <p>_______________________________</p>
