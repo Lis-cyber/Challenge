@@ -1,23 +1,42 @@
-// import React from 'react'
+import React, { useState } from 'react'
+import { FilterStyled } from '../Styles/Filter_styles';
 
-// function Categories(props) {
+function Categories({searchCat , categories}) {
+    const [input, setInput] = useState("");
+
+    return (
+        <FilterStyled>
+        <div className="all">
+            <form className="orderCat" onSubmit = {(e) => {
+                e.preventDefault();
+                searchCat(input);
+                setInput("")
+            }}>
+            <input
+                className = "send"
+                type = "submit"
+                value = "Categories"
+                />
+            </form>
+            <div className="results">
+                {categories.map((cat) => {
+                    return (
+                        <option key={cat.id}>{cat.name}</option>
+                    )
+                        
+                })}
+            </div>
+        </div>
+        </FilterStyled>
+    )
+}
     
-//     console.log("Props de categories" , props)
-
-//     return (
-//         <div className="cats">
-//              <div className="order">
-//           {/* Condition {" "} */}
-//           <select value={props.selectCat} onChange={props.selectCat}>
-//               <option value="categories" >Categories</option>
-              
-//           </select>
-//       </div>
-//         </div> 
     
-//     )
-// }
-
-
-// export default Categories
-
+export default Categories
+    
+    
+// <option value={cat.name}
+// key = {cat.id}
+// id = {cat.id}
+// name = {cat.name}
+// />

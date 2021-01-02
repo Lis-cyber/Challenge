@@ -5,7 +5,6 @@ import {
 
 import ShoppingPhoto from '../Styles/img/home.jpg'
 import { HomeStyled } from '../Styles/Home_style'
-import Footer from './Footer'
 
 function Home() {
 

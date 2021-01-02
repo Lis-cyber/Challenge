@@ -1,32 +1,42 @@
 import styled from 'styled-components';
-import pexels from '../Styles/img/pexels-pixabay-45238.jpg'
+import pexels from '../Styles/img/menu3.jpg'
+//import pexels from '../Styles/img/menu1.png'
+
 
 export const SearchBarStyled = styled.div `
-  * {
-    box-sizing: border-box;
-  }
+
   .searchBar {
+    display: block;
+    text-align: center;
     background-image: url(${pexels});
     background-size: 100%;
     background-repeat: no-repeat;
     overflow: hidden;
-    display: block;
-    padding: 1rem;
-    align-items: center;
-  }
-
-  .cssDeLaBarritaDeBusqueda {
-    margin-right: 0.6rem;
-  }
-
-  .text {
+    padding: 2rem;
     font-family: 'Handlee', cursive;
+  }
+  
+  
+  .text {
     font-weight: bold;
     float: left;
     color: black;
     font-size: 3rem;
+    overflow: hidden;
   }
-  .inputs {
-    float: right;
+  
+  .form {
+    overflow: hidden;
+    padding: 1rem;
+    input {
+      border-radius: 0.4rem;
+      border-color: white;
+      float: right; 
+      margin-right: 0.6rem;
+      font-size: 1.rem;
+      padding: 0.1rem;
+    }
   }
-`
+  
+  `
+  
