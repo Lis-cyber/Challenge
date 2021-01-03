@@ -17,8 +17,8 @@ const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
     <PaginationStyled>
       <nav>
         <ul>
-          {pageNumbers.map(number => (
-              <button className="page-list" onClick={() => paginate(number)}>
+          {pageNumbers.map((number) => (
+              <button className="page-list" onClick={() => paginate(number)} key={number}>
               <li key={number}>
                 {/* y acá se van mostrando todos los números de las páginas, a través de un map */}
                   {number}

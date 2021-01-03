@@ -23,7 +23,7 @@ function Features() {
 
   // Categories ------------------------------------------->
   const [categories, setCategories] = useState([]);
-  const [setCategoriesResult] = useState([]);
+  //const [setCategoriesResult] = useState([]);
 
   // Pagination ----------------------------------------->
   const [currentPage, setCurrentPage] = useState(1);
@@ -65,7 +65,7 @@ function Features() {
     axios.get(`http://localhost:1337/api/categories`)
     .then((categories) => {
       setCategories(categories.data);
-      setCategoriesResult(categories.data) 
+      //setCategoriesResult(categories.data) 
     })
     .catch((err) => {
       console.log(err)
@@ -181,6 +181,7 @@ function Features() {
               productsPerPage={productsPerPage}
               totalProducts={products.length}
               paginate={paginate}
+              key={paginate}
             />
             <Catalogue products={currentProducts} addToCart={addToCart} />
             <Pagination
