@@ -29,6 +29,7 @@ export const FilterStyled = styled.div `
     .results {
         margin:1rem;
         display: flex;
+        flex-direction: column;
         justify-content: flex-start;
         font-family: 'Bellota', cursive;
     }
@@ -41,7 +42,6 @@ export const FilterStyled = styled.div `
         margin-bottom: 0.35rem;
         border: 0.05rem solid #DDD;
         box-shadow: 0.3rem 0.3rem 0.5rem #AAA;
-        vertical-align: bottom
-        
+        vertical-align: bottom 
     }
     `

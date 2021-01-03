@@ -30,8 +30,8 @@ export const HomeStyled = styled.div `
         width: 80%;
         padding: 20px;
         text-align: center;
-
     }
+    
     .link {
         font-size: 8rem;
         color: black;

@@ -8,6 +8,10 @@ export const CartStyled = styled.div `
         display: flex;
         padding-bottom: 3rem;
         list-style-type: none;
+        img {
+            margin: auto;
+            width: 6.25rem;
+          }
     }
 
     .infoDiv {
@@ -16,7 +20,7 @@ export const CartStyled = styled.div `
         align-items: center;
         justify-content: center;
         font-size: 1rem;
-        div{
+        div {
             margin: 0.2rem
         }
     }
@@ -27,4 +31,6 @@ export const CartStyled = styled.div `
     .total {
         font-size: 1.5rem;
     }
+    .empty {
+        font-size: 1.5rem;  }
 `

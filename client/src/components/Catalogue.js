@@ -1,30 +1,29 @@
-import ProductCard from './ProductCard';
-import { CatalogueStyled } from '../Styles/Catalogue_style'
+// Se importa el componente ProductCard.js, debido a que el componente Catalogue.js, renderizará varios componentes ProductCard.js
+import ProductCard from "./ProductCard";
+import { CatalogueStyled } from "../Styles/Catalogue_style";
 
-
-function Catalogue ({ products , addToCart }) {
+// Se crea Catalogue, con parámetros products y addToCart que son pasadas por props desde el componente padre, que es Features.js
+function Catalogue({ products, addToCart }) {
   return (
     <CatalogueStyled>
-      {
-        products.map((product) => {
-          return (
-              <ProductCard 
-                key = {product.id}
-                title = {product.title}
-                price = {product.price}
-                currency_id = {product.currency_id}
-                available_quantity = {product.available_quantity}
-                thumbnail = {product.thumbnail}
-                condition = {product.condition}
-                permalink = {product.permalink}
-                // Acá se agrega el producto y en ProductCard solo lo ejecuta
-                addToCart = {() => addToCart(product)}
-              />
-          )
-        })
-      }
+      {products.map((product) => {
+        return (
+          <ProductCard
+          // Aca se colocan como props, todo lo que traemos del back
+            key={product.id}
+            title={product.title} // Este es el nombre del producto
+            price={product.price} // Este es el precio del producto
+            currency_id={product.currency_id} // Esto es la moneda del producto, ejemplo ARS
+            available_quantity={product.available_quantity} // Esto es la cantidad disponible para comprar del producto
+            thumbnail={product.thumbnail} // Esto es la imagen del producto
+            condition={product.condition} // Esta es la condición del producto, ya sea nuevo o usado
+            permalink={product.permalink} // Este es el link del producto, que redirige a mercadolibre
+            addToCart={() => addToCart(product)} // Esta es una función pasada por props, que funciona para añadir productos al carrito
+          />
+        );
+      })}
     </CatalogueStyled>
-  )
+  );
 }
 
-export default Catalogue
+export default Catalogue;
