@@ -7,8 +7,7 @@ export const PaginationStyled = styled.div `
   justify-content: flex-end;
   margin-right: 3.5rem;
 
-
-  .page-list{
+  .page-list {
     text-decoration: none;
     list-style: none;
     float: left;
@@ -16,8 +15,8 @@ export const PaginationStyled = styled.div `
     margin: 0.5rem;
     padding: 0.48rem 0.96rem;
     background-color: #ddd;
-    border-radius: .6rem;
-    border: none
+    border-radius: 0.6rem;
+    border: none;
   }
 
   .page-list a:active {

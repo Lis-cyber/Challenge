@@ -16,7 +16,6 @@ export const SearchBarStyled = styled.div `
     font-family: 'Handlee', cursive;
   }
   
-  
   .text {
     font-weight: bold;
     float: left;
@@ -37,6 +36,4 @@ export const SearchBarStyled = styled.div `
       padding: 0.1rem;
     }
   }
-  
   `
-  

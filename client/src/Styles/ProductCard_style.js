@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ProdCard = styled.div `
+export const ProductCardStyled = styled.div `
 
   display: flex;
   flex-grow: 1;
@@ -50,7 +50,6 @@ export const ProdCard = styled.div `
     cursor: pointer;
   }
 
-
   .buttonAdd {
     border-radius: 0.24rem;
     background-color: #6495ED;
@@ -89,5 +88,4 @@ export const ProdCard = styled.div `
     opacity: 1;
     right: 0;
   } 
-  
 `
