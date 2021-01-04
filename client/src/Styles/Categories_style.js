@@ -21,7 +21,9 @@ export const CategoriesStyled = styled.div`
     border-radius: 0.5rem;
     border: 0.05rem solid #ddd;
     box-shadow: 0.3rem 0.3rem 0.5rem #aaa;
-  }
-  .list {
+    // Barra deslizable
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 12rem;
   }
 `;
