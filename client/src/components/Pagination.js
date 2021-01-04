@@ -1,4 +1,4 @@
-import { PaginationStyled } from '../Styles/Pagination_style';
+import { PaginationStyled } from "../Styles/Pagination_style";
 
 // Este componente Pagination, se creó para mostrar todos los resultados de producto, pero en distintas páginas.
 // le llegan por props, las variables productsPerPage (productos por página), totalProducts(productos totales) y paginate, que
@@ -18,12 +18,16 @@ const Pagination = ({ productsPerPage, totalProducts, paginate }) => {
       <nav>
         <ul>
           {pageNumbers.map((number) => (
-              <button className="page-list" onClick={() => paginate(number)} key={number}>
+            <button
+              className="page-list"
+              onClick={() => paginate(number)}
+              key={number}
+            >
               <li key={number}>
                 {/* y acá se van mostrando todos los números de las páginas, a través de un map */}
-                  {number}
-                </li>
-              </button>
+                {number}
+              </li>
+            </button>
           ))}
         </ul>
       </nav>

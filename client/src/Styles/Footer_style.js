@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const FooterStyled = styled.div `
+export const FooterStyled = styled.div`
   margin-top: 15rem;
- 
+
   .footer {
     display: flex;
     position: fixed;
@@ -13,7 +13,7 @@ export const FooterStyled = styled.div `
     background-color: #bdb7ab;
     color: white;
     text-align: center;
-    font-family: 'Bellota Text', cursive; 
+    font-family: "Bellota Text", cursive;
   }
 
   .used-technologies {
@@ -28,11 +28,11 @@ export const FooterStyled = styled.div `
     justify-content: center;
     padding-left: 2rem;
     width: 15rem;
-    
+
     ul {
       padding-left: 1rem;
       width: 8rem;
-      font-family: 'Patrick Hand SC', cursive;
+      font-family: "Patrick Hand SC", cursive;
       font-size: 1.2rem;
       li {
         text-align: left;
@@ -46,12 +46,12 @@ export const FooterStyled = styled.div `
     width: 30rem;
   }
 
-  .info-devs { 
+  .info-devs {
     display: grid;
     align-items: center;
     flex-grow: 2;
     margin: 1rem;
-    
+
     div {
       padding-left: 1rem;
     }
@@ -65,10 +65,10 @@ export const FooterStyled = styled.div `
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'Patrick Hand SC', cursive;
+    font-family: "Patrick Hand SC", cursive;
     font-size: 2rem;
     img {
-      margin: 1rem
+      margin: 1rem;
     }
   }
-`
+`;

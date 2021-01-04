@@ -1,5 +1,5 @@
-import githubLogo from '../Styles/img/GitHub-Mark-64px.jpg'
-import { FooterStyled } from '../Styles/Footer_style'
+import githubLogo from "../Styles/img/GitHub-Mark-64px.jpg";
+import { FooterStyled } from "../Styles/Footer_style";
 
 // Este componente Footer, es un pie de página, comúnmente utilizado para mostrar información respecto a la página web.
 function Footer() {

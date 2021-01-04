@@ -1,8 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const CatalogueStyled = styled.div `
- 
+export const CatalogueStyled = styled.div`
   display: inline-flex;
   flex-wrap: wrap;
   position: relative;
-`
+`;

@@ -6,13 +6,12 @@ import axios from "axios";
 import Filter from "./Filter";
 import Pagination from "./Pagination";
 import Footer from "./Footer";
-import { FeaturesStyled } from '../Styles/Features_styles';
-import { SearchBarStyled } from '../Styles/SearchBar_style';
-import Slides from './Slides';
-import  Categories  from './Categories';
+import { FeaturesStyled } from "../Styles/Features_styles";
+import { SearchBarStyled } from "../Styles/SearchBar_style";
+import Slides from "./Slides";
+import Categories from "./Categories";
 
 function Features() {
-
   const [error, setError] = useState(false);
   // Products ------------------------------------------->
   const [products, setProducts] = useState([]);
@@ -43,57 +42,47 @@ function Features() {
   // La función onSearch, hace la conexión con el back, debido a que el input ingresado por el usuario, requiere la llamada
   // a la API de mercado libre, a través de un request tipo GET por axios.
   const onSearch = (product) => {
-    //useEffect(() => {
-
-      // const abortController = new AbortController();
-      // const signal = abortController.signal;
-      //, {signal: signal}
-      setInput(product);
-      axios
-        .get(`http://localhost:1337/api/search?q=${product}`)
-        .then((p) => {
-          
-          // Si la promesa fue resuelta, guarda los datos en Products y en ProductsResult
-          setProducts(p.data);
-          // Se guarda lo mismo en dos variables distintas, debido a que para realizar un filtro de productos, 
-          // se necesitará modificar el array de productos, pot lo cual Products queda con todos los resultados sin modificarse.
-          // y de esta forma se puede retornar a los valores iniciales o al momento de seleccionar otra condición.
-          // Products -> queda intacto
-          // ProductsResult -> es modificado cuando se cambia el filtro
-          setProductsResult(p.data);
-          setError(false);
-        })
-        .catch((err) => {
-          console.log(err);
-          setError(true);
-        });
-    //     return function cleanUp(){
-    //       abortController.signal()
-    //     }
-    // }, []);
+    setInput(product);
+    axios
+      .get(`http://localhost:1337/api/search?q=${product}`)
+      .then((p) => {
+        // Si la promesa fue resuelta, guarda los datos en Products y en ProductsResult
+        setProducts(p.data);
+        // Se guarda lo mismo en dos variables distintas, debido a que para realizar un filtro de productos,
+        // se necesitará modificar el array de productos, pot lo cual Products queda con todos los resultados sin modificarse.
+        // y de esta forma se puede retornar a los valores iniciales o al momento de seleccionar otra condición.
+        // Products -> queda intacto
+        // ProductsResult -> es modificado cuando se cambia el filtro
+        setProductsResult(p.data);
+        setError(false);
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(true);
+      });
   };
-  
+
   // Route --> /api/categories
   const searchCat = () => {
-    axios.get(`http://localhost:1337/api/categories`)
-    .then((categories) => {
-      setCategories(categories.data);
-      //setCategoriesResult(categories.data) 
-    })
-    .catch((err) => {
-      console.log(err)
-    })
-  }
-  
+    axios
+      .get(`http://localhost:1337/api/categories`)
+      .then((categories) => {
+        setCategories(categories.data);
+        //setCategoriesResult(categories.data)
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   // Sort ------------------------------------------------>
   const sortProducts = (event) => {
     const sort = event.target.value;
     setSort(sort);
     setProducts(
-      // Slice va extrayendo cada valor del arreglo y a traves del sort compara cada dos elementos y dependiendo de la condicion, lo posiciona delante (1) o detrás (-1), dentro del arreglo. 
-      // Esto lo realiza, recoorriendo todos los valores una y otra vez, hasta que estén en la posición correcta.  
+      // Slice va extrayendo cada valor del arreglo y a traves del sort compara cada dos elementos y dependiendo de la condicion, lo posiciona delante (1) o detrás (-1), dentro del arreglo.
+      // Esto lo realiza, recoorriendo todos los valores una y otra vez, hasta que estén en la posición correcta.
       products.slice().sort((a, b) =>
-
         sort === "lowest"
           ? a.price > b.price
             ? 1
@@ -157,21 +146,18 @@ function Features() {
 
   return (
     // Se le da estilo al componente Features, con su styled-component FeaturesStyled
-    <FeaturesStyled> 
+    <FeaturesStyled>
       {/* Se le da estilo a la barra de búsqueda con un styled-component llamado SearchBarStyled */}
       <SearchBarStyled>
         {/* Se le manda por props al componente SearchBar, la función onSearch */}
-        <SearchBar onSearch={onSearch} /> 
+        <SearchBar onSearch={onSearch} />
       </SearchBarStyled>
       <div>
         <Slides />
         {/* Al componente filter, se le envían por props, las funciones declaradas en este componente,
         como sortProducts y filterProducts*/}
-        <div className="Filter_Categories"> 
-          <Categories
-            searchCat={searchCat}
-            categories={categories}
-            />
+        <div className="Filter_Categories">
+          <Categories searchCat={searchCat} categories={categories} />
           <Filter
             count={products.length}
             sort={sort}
@@ -179,8 +165,8 @@ function Features() {
             sortProducts={sortProducts}
             filterProducts={filterProducts}
             input={input}
-            />
-          </div>
+          />
+        </div>
         {/* Se divide en distintos div, para mostrar los resultados al lado izquierdo de la pantalla y el carrito al lado derecho */}
         <div className="content">
           <div className="main">
@@ -190,10 +176,11 @@ function Features() {
               paginate={paginate}
               key={"#"}
             />
-            <Catalogue 
-              products={currentProducts} 
-              addToCart={addToCart} 
-              error = {error} />
+            <Catalogue
+              products={currentProducts}
+              addToCart={addToCart}
+              error={error}
+            />
             <Pagination
               productsPerPage={productsPerPage}
               totalProducts={products.length}
