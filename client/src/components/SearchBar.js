@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-
 // Este componente es para realizar las búsquedas, le llega la función onSearch por props, que está definida en Features.js
 function SearchBar({ onSearch }) {
   // Se crea una variable input, donde se guarda el valor ingresado por el usuario, tiene un string vacio como valor inicial,

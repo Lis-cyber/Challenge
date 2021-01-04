@@ -1,10 +1,7 @@
-import styled from 'styled-components';
-import pexels from '../Styles/img/menu3.jpg'
-//import pexels from '../Styles/img/menu1.png'
+import styled from "styled-components";
+import pexels from "../Styles/img/menu3.jpg";
 
-
-export const SearchBarStyled = styled.div `
-
+export const SearchBarStyled = styled.div`
   .searchBar {
     display: block;
     text-align: center;
@@ -13,9 +10,9 @@ export const SearchBarStyled = styled.div `
     background-repeat: no-repeat;
     overflow: hidden;
     padding: 2rem;
-    font-family: 'Handlee', cursive;
+    font-family: "Handlee", cursive;
   }
-  
+
   .text {
     font-weight: bold;
     float: left;
@@ -30,17 +27,17 @@ export const SearchBarStyled = styled.div `
     font-size: 1.5rem;
     overflow: hidden;
   }
-  
+
   .form {
     overflow: hidden;
     padding: 1rem;
     input {
       border-radius: 0.4rem;
       border-color: white;
-      float: right; 
+      float: right;
       margin-right: 0.6rem;
-      font-size: 1.rem;
+      font-size: 1rem;
       padding: 0.1rem;
     }
   }
-  `
+`;

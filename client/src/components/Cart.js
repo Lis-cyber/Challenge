@@ -1,5 +1,5 @@
 // Se importa el estilo como styled-component
-import { CartStyled } from '../Styles/Cart_style'
+import { CartStyled } from "../Styles/Cart_style";
 
 // Se crea Cart, con parámetros cartItems y removeFromCart que son pasadas por props desde el componente padre, que es Features.js
 const Cart = ({ cartItems, removeFromCart }) => {
@@ -36,10 +36,7 @@ const Cart = ({ cartItems, removeFromCart }) => {
             {/* Se realiza un map, en el array de cartItems, para mostrar uno por uno */}
             {cartItems.map((item) => (
               <li className="product-cart" key={item.id}>
-                <img
-                  src={item.thumbnail}
-                  alt={item.title}
-                ></img>
+                <img src={item.thumbnail} alt={item.title}></img>
 
                 <div className="infoDiv">
                   <div className="info-text">
@@ -52,7 +49,8 @@ const Cart = ({ cartItems, removeFromCart }) => {
                       Subtotal: ${" "}
                       {Intl.NumberFormat("de-DE").format(
                         item.price * item.count
-                      )}{" "} {item.currency_id}
+                      )}{" "}
+                      {item.currency_id}
                     </div>
                   </div>
                   <div className="button-remove">

@@ -1,7 +1,7 @@
 // Se guarda en una constante server para utilizarse directamente con las rutas
 const server = require("express").Router();
 const axios = require("axios"); // Se requiere axios para hacer las llamadas a la api
-const { cache } = require('../cache');
+const { cache } = require("../cache");
 
 // Usaremos el siguiente endpoint de Mercado Libre https://api.mercadolibre.com/sites/MLA/search?q={query}.
 // Recibe un queryString con el parámetro q con un string que indica el keyword a buscar.
@@ -13,7 +13,7 @@ server.get("/api/search", cache(20), (req, res) => {
   // Se guarda en una constante product el valor que llega por query
   const product = req.query.q;
   // Esta constante se crea debido a que las imagenes obtenidas de mercadolibre vienen en una resolución pequeña
-  // cuando tienen el formato https://http2.mlstatic.com/D_916062-MLA43654417337_102020-I.jpg, y al 
+  // cuando tienen el formato https://http2.mlstatic.com/D_916062-MLA43654417337_102020-I.jpg, y al
   // cambiar el -I. por -O. se ven en mejor resolución cuando se agrandan.
   const regex = /-I./;
 
@@ -37,12 +37,12 @@ server.get("/api/search", cache(20), (req, res) => {
             available_quantity: product.available_quantity, // Esto es la cantidad disponible para comprar del producto
             thumbnail: product.thumbnail.replace(regex, "-O."), // Esto es la imagen del producto, acá se hace el reemplazo de -I. por -O
             condition: product.condition, // Esta es la condición del producto, ya sea nuevo o usado
-            permalink : product.permalink // Este es el link del producto, que redirige a mercadolibre
+            permalink: product.permalink, // Este es el link del producto, que redirige a mercadolibre
           };
         });
         // Por lo cual, si la promesa fue resuelta, envía un status 200, y envía el producto.
         res.status(200).send(products);
-      } 
+      }
       // Si fue rechazada, arroja un error, que el producto no fue encontrado.
       else {
         throw "Product not found.";
@@ -56,16 +56,14 @@ server.get("/api/search", cache(20), (req, res) => {
 
 // Principal Categories --->
 server.get("/api/categories", cache(20), (req, res) => {
-  
-  axios.get('https://api.mercadolibre.com/sites/MLA/categories')
-  .then(({data}) => {
-    res.status(200).send(data)
-  }
-  )
-  .catch((err) =>{
-    res.status(404).send(err);
-  })
+  axios
+    .get("https://api.mercadolibre.com/sites/MLA/categories")
+    .then(({ data }) => {
+      res.status(200).send(data);
+    })
+    .catch((err) => {
+      res.status(404).send(err);
+    });
 });
 
-  
 module.exports = server;

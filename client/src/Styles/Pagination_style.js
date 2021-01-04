@@ -1,9 +1,7 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
-
-export const PaginationStyled = styled.div `
-
-  display: flex; 
+export const PaginationStyled = styled.div`
+  display: flex;
   justify-content: flex-end;
   margin-right: 3.5rem;
 
@@ -20,7 +18,7 @@ export const PaginationStyled = styled.div `
   }
 
   .page-list a:active {
-    background-color: #4CAF50;
+    background-color: #4caf50;
     color: white;
     border-radius: 0.3rem;
   }
@@ -29,5 +27,4 @@ export const PaginationStyled = styled.div `
     background-color: rgb(235, 199, 145);
     border-radius: 0.3rem;
   }
-
-`
+`;

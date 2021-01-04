@@ -9,7 +9,7 @@ const ProductCard = (props) => {
           src={props.thumbnail}
           alt="thumbnail"
           className="card-img"
-          // Al realizar un click en la imagen, llama a una función llamada window.open, lo que hace es abrir el link del producto 
+          // Al realizar un click en la imagen, llama a una función llamada window.open, lo que hace es abrir el link del producto
           // de mercadolibre, en otra pestaña.
           onClick={() => window.open(props.permalink, "_blank")}
         />

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import ShoppingPhoto from '../Styles/img/home.jpg'
-import { HomeStyled } from '../Styles/Home_style'
+import ShoppingPhoto from "../Styles/img/home.jpg";
+import { HomeStyled } from "../Styles/Home_style";
 import Footer from "./Footer";
 
-// Este componente Home, se creó con el fin de mostrar una página principal al usuario, una imagen de fondo y un link para llevar al 
+// Este componente Home, se creó con el fin de mostrar una página principal al usuario, una imagen de fondo y un link para llevar al
 // contenido de la página con sus funciones.
 function Home() {
   return (
