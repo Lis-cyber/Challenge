@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const FeaturesStyled = styled.div`
-  //margin-bottom: 10rem;
   .content {
     display: flex;
     flex-wrap: wrap;
@@ -14,7 +13,7 @@ export const FeaturesStyled = styled.div`
       font-family: "Handlee", cursive;
       font-size: 3rem;
       text-align: center;
-      z-index: 2;
+      margin-top: 1rem;
     }
     .error {
       horizontal-align: right;

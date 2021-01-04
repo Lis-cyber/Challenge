@@ -13,7 +13,7 @@ export const HomeStyled = styled.div`
   img {
     //filter: blur(1px);
     -webkit-filter: blur(0px);
-    width: 100%;
+    width: 110%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;

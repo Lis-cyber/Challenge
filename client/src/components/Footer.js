@@ -24,6 +24,10 @@ function Footer() {
               <ul>
                 <li>CORS</li>
               </ul>
+            </ul>
+          </div>
+          <div className="list">
+            <ul>
               <li>HTML</li>
               <li>CSS</li>
             </ul>
