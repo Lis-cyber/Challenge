@@ -22,7 +22,12 @@ const Slides = () => {
       <Slider autoplay={3000}>
         {slides.map((slide, index) => <div key={index}>
           {/* Se hace un map para mostrar cada imagen del array */}
-          <img src = {slide.img} alt = {slide.description}/>
+          <img 
+            src = {slide.img} 
+            alt = {slide.description} 
+            onClick={() => window.open("https://www.mercadolibre.com.ar/ofertas", "_blank")} 
+            style={{cursor: `pointer`, marginTop: `1rem`}}
+          />
         </div>)}
       </Slider>
     </div>

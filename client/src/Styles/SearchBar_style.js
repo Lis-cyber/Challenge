@@ -23,6 +23,13 @@ export const SearchBarStyled = styled.div `
     font-size: 3rem;
     overflow: hidden;
   }
+  .text1 {
+    font-weight: bold;
+    float: left;
+    color: black;
+    font-size: 1.5rem;
+    overflow: hidden;
+  }
   
   .form {
     overflow: hidden;

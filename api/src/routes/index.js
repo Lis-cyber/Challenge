@@ -7,6 +7,7 @@ const { cache } = require('../cache');
 // Recibe un queryString con el parámetro q con un string que indica el keyword a buscar.
 
 // Se crea la ruta /api/search, que utilizará el front para hacer la conexión. Una petición GET.
+// Acá hacemos referencia al cache y al tiempo que estará alojada la información en el mismo (en segundos).
 // /api/search
 server.get("/api/search", cache(20), (req, res) => {
   // Se guarda en una constante product el valor que llega por query
@@ -66,22 +67,5 @@ server.get("/api/categories", cache(20), (req, res) => {
   })
 });
 
-// Secundary Categories -->
-server.get("/api/categories/:id", cache(20), (req, res) => {
-  const id = req.params.id;
-  axios.get(`https://api.mercadolibre.com/categories/${id}`)
-  .then((id) => {
-    // /sites/MLA/search?category=
-    const category = id.data.children_categories;
-    console.log("Soy permalink ", id.data.permalink)
-    res.status(200).send(category);
-  })
-  .catch((err) =>{
-    res.status(404).send(err);
-  })
-});
-
   
 module.exports = server;
-
-
