@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 export const FooterStyled = styled.div `
+  margin-top: 15rem;
  
   .footer {
     display: flex;
-    position: relative;
+    position: fixed;
     padding-top: 1rem;
     left: 0;
     bottom: 0;

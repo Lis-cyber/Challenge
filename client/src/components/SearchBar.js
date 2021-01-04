@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+
 // Este componente es para realizar las búsquedas, le llega la función onSearch por props, que está definida en Features.js
 function SearchBar({ onSearch }) {
   // Se crea una variable input, donde se guarda el valor ingresado por el usuario, tiene un string vacio como valor inicial,
@@ -12,6 +13,7 @@ function SearchBar({ onSearch }) {
       <div>
         {/* Este link redirige a la página principal, al hacer click en Home */}
         <Link to="/">
+          <h5 className="text1">Go</h5>
           <h3 className="text">Home</h3>
         </Link>
       </div>

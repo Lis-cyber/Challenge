@@ -6,14 +6,6 @@ function Filter(props) {
   return (
     <FilterStyled>
       <div className="all">
-        <div className="results">
-          <div className="input">
-            {/* El input es lo que ingresa el usuario en la barra de búsqueda */}
-            <b>{props.input}</b>
-          </div>
-          {/* El count, es la cantidad de resultados que entrega el input */}
-          <div className="result">{props.count} Results </div>
-        </div>
         <div className="order">
           {/* sortProducts, es una función creada en Features.js, que sirve para ordenar los productos por precio,
           de mayor a menor o viceversa.*/}
@@ -33,6 +25,14 @@ function Filter(props) {
             <option value="new">New</option>
             <option value="used">Used</option>
           </select>
+        <div className="results">
+          <div className="input">
+            {/* El input es lo que ingresa el usuario en la barra de búsqueda */}
+            <b>{props.input}</b>
+          </div>
+          {/* El count, es la cantidad de resultados que entrega el input */}
+          <div className="result">{props.count} Results </div>
+        </div>
         </div>
       </div>
     </FilterStyled>

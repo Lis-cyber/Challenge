@@ -6,6 +6,7 @@ export const FilterStyled = styled.div `
     align-items: center;
     .all {
         display: flex;
+        margin: 0;
     }
     
     .order {
@@ -13,12 +14,12 @@ export const FilterStyled = styled.div `
         align-items: center;
         margin-left: 1rem;
     }
-    
     select {
         background-color: rgb(241, 227, 227);
         padding: 0.6rem;
         border-radius: 0.5rem;
         margin: 1rem;
+        margin-top: 0;
         border: 0.05rem solid #DDD;
         box-shadow: 0.3rem 0.3rem 0.5rem #AAA;
         display: flex;
@@ -27,21 +28,8 @@ export const FilterStyled = styled.div `
         text-transform: capitalize;
     }
     .results {
-        margin:1rem;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
         font-family: 'Bellota', cursive;
+        margin-left: 1.2rem;
     }
     
-    .send {
-        background-color: rgb(241, 227, 227);
-        padding: 0.6rem;
-        border-radius: 0.5rem;
-        margin-left: 2rem;
-        margin-bottom: 0.35rem;
-        border: 0.05rem solid #DDD;
-        box-shadow: 0.3rem 0.3rem 0.5rem #AAA;
-        vertical-align: bottom 
-    }
-    `
+`
