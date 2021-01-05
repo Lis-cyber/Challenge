@@ -117,7 +117,6 @@ function Features() {
       );
     } else {
       // por defecto trae los elementos según la API
-      setCondition(productCondition);
       setProducts(productsResult);
     }
   };
@@ -127,7 +126,13 @@ function Features() {
   const itemsCart = cartItems.slice(); // Clona los items del carrito dentro del estado
 
   const addToCart = (product) => {
+    // Se crea una constante para guardar la respuesta si es que el producto esta en el carrito
+    // parte con valor inicial false, para indicar que el producto no está en el carrito
     let alreadyInCart = false;
+    // Utiliza el array de itemsCart (donde estan todos los productos del carrito), con el
+    // forEach va uno por uno, preguntando si es que el id del item es el mismo del id del producto
+    // si es igual, le suma uno al producto, y si no (que es donde entra primero), lo agrega al array
+    // de itemsCart
     itemsCart.forEach((item) => {
       if (item.id === product.id) {
         item.count++;
@@ -141,6 +146,9 @@ function Features() {
   };
   // Cart - RemoveItems -------------------------------->
   const removeFromCart = (product) => {
+    // pregunta por cada id, si es distinto al itemId la condicion será verdadera y se 
+    // guardaran en el nuevo array. Cuando la condicion sea falsa, simplemente no agregará ese producto, 
+    // y de esta forma ya quedará eliminado 
     setCartItems(itemsCart.filter((x) => x.id !== product.id));
   };
 
