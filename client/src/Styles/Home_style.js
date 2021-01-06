@@ -26,12 +26,12 @@ export const HomeStyled = styled.div`
     font-weight: bold;
     border: 3px solid #f1f1f1;
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    width: 70%;
-    padding: 20px;
+    width: 60%;
+    padding: 40px;
     text-align: center;
   }
 

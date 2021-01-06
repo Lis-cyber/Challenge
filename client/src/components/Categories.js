@@ -32,8 +32,6 @@ function Categories({ searchCat, categories }) {
                 <option
                   className="list"
                   key={cat.id}
-                  // Window.open inicializa una nueva página con _blanck para generarla en otra pestaña
-                  // Normalice retorna la Forma de Normalización Unicode de la cadena dada. Utiliza una expresión regular
                   onClick={() =>
                     window.open(
                       `https://www.mercadolibre.com.ar/c/${cat.name
