@@ -1,9 +1,7 @@
 import Slider from "react-animated-slider";
 import "react-animated-slider/build/horizontal.css";
 
-// Este componente se utiliza para mostrar las imagenes de forma deslizable en la misma página
 const Slides = () => {
-  // Acá se guardan todas las imágenes, src y alt
   const slides = [
     {
       img:
@@ -44,12 +42,9 @@ const Slides = () => {
 
   return (
     <div>
-      {/* Se renderiza el componente con la propiedad autoplay, que hace que las imagenes se deslicen de manera 
-      automática pasado un tiempo, en este caso 3000 ms (3 segundos) */}
       <Slider autoplay={3000}>
         {slides.map((slide, index) => (
           <div key={index}>
-            {/* Se hace un map para mostrar cada imagen del array */}
             <img
               src={slide.img}
               alt={slide.description}

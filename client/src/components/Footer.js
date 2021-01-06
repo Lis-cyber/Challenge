@@ -1,13 +1,11 @@
 import githubLogo from "../Styles/img/GitHub-Mark-64px.jpg";
 import { FooterStyled } from "../Styles/Footer_style";
 
-// Este componente Footer, es un pie de página, comúnmente utilizado para mostrar información respecto a la página web.
 function Footer() {
   return (
     <FooterStyled>
       <div className="footer">
         <div className="used-technologies">
-          {/* Por ejemplo aquí, se señalan las tecnologías ocupadas en el desarrollo del proyecto, las más importantes a considerar. */}
           <b>Tecnologías ocupadas:</b>
           <div className="list">
             <ul>
