@@ -6,7 +6,14 @@ function Filter(props) {
       <div className="all">
         <div className="order">
           <select value={props.sort} onChange={props.sortProducts}>
-            <option value="price">Price</option>
+            <option >Price</option>
+            <option value="lowest">Lowest</option>
+            <option value="highest">Highest</option>
+          </select>
+        </div>
+        <div className="order">
+          <select value={props.stock} onChange={props.stockProducts}>
+            <option >Stock</option>
             <option value="lowest">Lowest</option>
             <option value="highest">Highest</option>
           </select>
@@ -25,6 +32,7 @@ function Filter(props) {
           </div>
         </div>
       </div>
+
     </FilterStyled>
   );
 }

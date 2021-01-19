@@ -36,11 +36,11 @@ function Footer() {
             <b>Trabajo realizado por: </b>
             <div className="us">
               Lisbeth
-              <a href="https://github.com/Lis-cyber">
+              <a href="https://github.com/Lis-cyber" target="_blank" rel="noreferrer">
                 <img src={githubLogo} alt="lis" />
               </a>
               Sixto
-              <a href="https://github.com/sacunap">
+              <a href="https://github.com/sacunap" target="_blank" rel="noreferrer">
                 <img src={githubLogo} alt="sixto" />
               </a>
             </div>

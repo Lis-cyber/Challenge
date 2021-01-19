@@ -21,7 +21,7 @@ function Features() {
   // Condition ------------------------------------------>
   const [condition, setCondition] = useState("");
   const [sort, setSort] = useState("");
-
+  const [stock, setStock] = useState("");
   // Categories ----------------------------------------->
   const [categories, setCategories] = useState([]);
 
@@ -73,21 +73,42 @@ function Features() {
     const sort = event.target.value;
     setSort(sort);
     setProducts(
-      products
-        .slice()
-        .sort((a, b) =>
-          sort === "lowest"
-            ? a.price > b.price
-              ? 1
-              : -1
-            : sort === "highest"
-            ? a.price < b.price
-              ? 1
-              : -1
-            : a.id > b.id
+      products.slice().sort((a, b) =>
+        sort === "lowest"
+          ? a.price > b.price
             ? 1
             : -1
-        )
+          : sort === "highest"
+          ? a.price < b.price
+            ? 1
+            : -1
+          : 
+          a.id > b.id
+          ? 1
+          : -1
+      )
+    );
+  };
+
+  // Stock ------------------------------------------------>
+  const stockProducts = (event) => {
+    const stock = event.target.value;
+    setStock(stock);
+    setProducts(
+      products.slice().sort((a, b) =>
+        stock === "lowest"
+          ? a.available_quantity > b.available_quantity
+            ? 1
+            : -1
+          : stock === "highest"
+          ? a.available_quantity < b.available_quantity
+            ? 1
+            : -1
+          : 
+          a.id > b.id
+          ? 1
+          : -1
+      )
     );
   };
 
@@ -110,7 +131,7 @@ function Features() {
 
   // Cart - AddItems ----------------------------------->
   const [cartItems, setCartItems] = useState([]);
-  const itemsCart = cartItems.slice();
+  const itemsCart = cartItems.slice(); 
 
   const addToCart = (product) => {
     let alreadyInCart = false;
@@ -123,7 +144,7 @@ function Features() {
     if (!alreadyInCart) {
       itemsCart.push({ ...product, count: 1 });
     }
-    setCartItems(itemsCart);
+    setCartItems(itemsCart); 
   };
   // Cart - RemoveItems -------------------------------->
   const removeFromCart = (product) => {
@@ -146,6 +167,8 @@ function Features() {
             sortProducts={sortProducts}
             filterProducts={filterProducts}
             input={input}
+            stock={stock}
+            stockProducts={stockProducts}
           />
         </div>
         <div className="content">
