@@ -58,7 +58,7 @@ This component will display an array of products (obtained from the API) using P
 - Fork the repo into your GitHub account or clone it on your PC.
 
 ```bash
-npm clone https://github.com/Lis-cyber/Challenge.git
+git clone https://github.com/Lis-cyber/Challenge.git
 ```
 
 - Then you must install all the dependencies on both, the back and the front end.
