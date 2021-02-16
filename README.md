@@ -75,7 +75,7 @@ npm start
 <br>
 
 ## 🐙 Contributors
----
+
 <a href="https://github.com/sacunap" target="_blank" rel="noreferrer">
 <span>
   <img width="8%" src="client/src/Styles/img/GitHub-Mark-64px.jpg" alt="sixto" />
