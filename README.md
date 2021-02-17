@@ -84,8 +84,12 @@ npm start
 ## 🐙 Contributors
 
 <a href="https://github.com/sacunap" target="_blank" rel="noreferrer">
-<span>
-  <img width="8%" src="client/src/Styles/img/GitHub-Mark-64px.jpg" alt="sixto" />
-  <p> Sacunap </p>
-</span>
+  <img width="65px" src="https://img.icons8.com/clouds/100/000000/github.png" alt="sixto" />
+  <p>Sacunap</p>
+</a>
+
+
+<a href="https://github.com/lis-cyber" target="_blank" rel="noreferrer"> 
+  <img width="65px" src="https://img.icons8.com/clouds/100/000000/github.png" alt="lis"/>
+  <p>Lis-Cyber</p>
 </a>
