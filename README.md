@@ -1,24 +1,20 @@
-<!-- <p align='left'>
-    <img src='https://static.wixstatic.com/media/85087f_0d84cbeaeb824fca8f7ff18d7c9eaafd~mv2.png/v1/fill/w_160,h_30,al_c,q_85,usm_0.66_1.00_0.01/Logo_completo_Color_1PNG.webp' </img>
-</p> -->
-
-# Labs Challenge 
+# 🎁 Labs Challenge
 
 The objective of the challenge was to build a Front-End and a Back-End that interacts with an external API.
 
 We are going to use the public API of **Free Market**. From it we are going to extract publications that we are going to store in our own back-end using a cache. For the front-end we are going to develop a series of React Components to be able to display and interact with the aforementioned publications.
 
-<br>
-
 ## 💻 Demo of Working Project
+
 <h1 align="center">
   <img width="400px" src="client/src/Styles/img/picture1.png" alt="picture1" />
   <img  width="400px" src="client/src/Styles/img/picture2.png" alt="picture2" />
   <img  width="400px" src="client/src/Styles/img/picture3.png" alt="picture3" />
   </h1>
 
-
-<br><br><br>
+Click <a href="https://mini-mercado.vercel.app/" target="_blank" rel="noreferrer">🔔HERE🔔</a> to see DEMO.
+<br>
+<br>
 
 # 🌱 Back-End
 
@@ -82,6 +78,7 @@ npm install
 ```bash
 npm start
 ```
+
 <br>
 
 ## 🐙 Contributors
