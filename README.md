@@ -10,6 +10,14 @@ We are going to use the public API of **Free Market**. From it we are going to e
 
 <br>
 
+## 💻 Demo of Working Project
+
+  <img width="500px" src="client/src/Styles/img/picture1.png" alt="picture1" />
+
+
+<br>
+<br>
+
 # 🌱 Back-End
 
 We use the following Mercado Libre endpoint `https://api.mercadolibre.com/sites/MLA/search?q={query}`.
