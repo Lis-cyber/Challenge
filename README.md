@@ -12,11 +12,12 @@ We are going to use the public API of **Free Market**. From it we are going to e
 
 ## 💻 Demo of Working Project
 
-  <img width="500px" src="client/src/Styles/img/picture1.png" alt="picture1" />
+  <img width="200px" src="client/src/Styles/img/picture1.png" alt="picture1" />
+  <img  width="200px" src="client/src/Styles/img/picture2.png" alt="picture2" />
+  <img  width="200px" src="client/src/Styles/img/picture3.png" alt="picture3" />
 
 
-<br>
-<br>
+<br><br><br>
 
 # 🌱 Back-End
 
