@@ -10,6 +10,14 @@ We are going to use the public API of **Free Market**. From it we are going to e
 
 <br>
 
+## 💻 Demo of Working Project
+
+  <img width="500px" src="client/src/Styles/img/picture1.png" alt="picture1" />
+
+
+<br>
+<br>
+
 # 🌱 Back-End
 
 We use the following Mercado Libre endpoint `https://api.mercadolibre.com/sites/MLA/search?q={query}`.
@@ -58,7 +66,7 @@ This component will display an array of products (obtained from the API) using P
 - Fork the repo into your GitHub account or clone it on your PC.
 
 ```bash
-npm clone https://github.com/Lis-cyber/Challenge.git
+git clone https://github.com/Lis-cyber/Challenge.git
 ```
 
 - Then you must install all the dependencies on both, the back and the front end.

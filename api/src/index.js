@@ -6,7 +6,7 @@ const routes = require('./routes/index.js');
 server.use(cors());
 server.use("/", routes);
 
-
-server.listen(1337, console.log("Server listening at port 1337"));
+const port = process.env.PORT || 3000
+server.listen( port , console.log(`Server listening at port ${port}`));
 
 module.exports = server;
