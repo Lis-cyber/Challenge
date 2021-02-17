@@ -42,7 +42,7 @@ function Features() {
   const onSearch = (product) => {
     setInput(product);
     axios
-      .get(`http://localhost:1337/api/search?q=${product}`)
+      .get(`/api/search?q=${product}` || `http://localhost:1337/api/search?q=${product}`)
       .then((p) => {
         setProducts(p.data);
         setProductsResult(p.data);
@@ -57,7 +57,7 @@ function Features() {
   // Route --> /api/categories
   const searchCat = () => {
     axios
-      .get(`http://localhost:1337/api/categories`)
+      .get(`/api/categories` || `http://localhost:1337/api/categories`)
       .then((categories) => {
         setCategories(categories.data);
       })
